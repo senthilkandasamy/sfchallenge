@@ -20,10 +20,10 @@
                                     AzureActiveDirectory="true"
                                     ServerCertThumbprint="0123456789012345678901234567890123456789" />
   -->
-  <ClusterConnectionParameters ConnectionEndpoint="dotjsontest2.westeurope.cloudapp.azure.com:19000" X509Credential="true" ServerCertThumbprint="7FB5D217080773F6E95BCFB8D937A4E7835D8979" FindType="FindByThumbprint" FindValue="7FB5D217080773F6E95BCFB8D937A4E7835D8979" StoreLocation="CurrentUser" StoreName="My" />
+  <ClusterConnectionParameters ServerCommonName="team1-ldn0618sfchallenge" StoreLocation="CurrentUser" StoreName="My" ConnectionEndpoint="team1-ldn0618cluster.westeurope.cloudapp.azure.com:19000" X509Credential="true" ServerCertThumbprint="68043E1164A8D97882C730991BDBD262F5A8F0C9" FindValue="68043E1164A8D97882C730991BDBD262F5A8F0C9" FindType="FindByThumbprint"/>
   <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
   <CopyPackageParameters CompressPackage="true" />
-  <UpgradeDeployment Mode="Monitored" Enabled="false">
+  <UpgradeDeployment Mode="Monitored" Enabled="true">
     <Parameters FailureAction="Rollback" Force="True" />
   </UpgradeDeployment>
 </PublishProfile>
