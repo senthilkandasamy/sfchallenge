@@ -14,7 +14,7 @@
     <Parameter Name="MongoConnectionString" DefaultValue="mongodb://mongo.exchange:27017" />
     <Parameter Name="MongoEnableSSL" DefaultValue="false" />
     <!-- Gateway parameters -->
-    <Parameter Name="Gateway_InstanceCount" DefaultValue="1" />
+    <Parameter Name="Gateway_InstanceCount" DefaultValue="5" />
     <!-- UserStore parameters -->
     <Parameter Name="UserStore_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="UserStore_PartitionCount" DefaultValue="1" />
