@@ -87,7 +87,10 @@ namespace Fulfillment
                 ServiceEventSource.Current.ServiceMaxPendingLimitHit();
                 throw new MaxPendingTradesExceededException(pendingTrades);
             }
-
+            else
+            {
+                System.Diagnostics.Debug.Write("In else part");
+            }
             var tradeId = await this.Trades.EnqueueAsync(tradeRequest, cancellationToken);
             return tradeId;
         }
