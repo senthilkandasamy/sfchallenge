@@ -9,10 +9,10 @@
     <Parameter Name="UserStore_PartitionCount" Value="1" />
     <Parameter Name="UserStore_MinReplicaSetSize" Value="3" />
     <Parameter Name="UserStore_TargetReplicaSetSize" Value="3" />
-    <Parameter Name="Fulfillment_PartitionCount" Value="1" />
+    <Parameter Name="Fulfillment_PartitionCount" Value="5" />
     <Parameter Name="Fulfillment_MinReplicaSetSize" Value="3" />
     <Parameter Name="Fulfillment_TargetReplicaSetSize" Value="3" />
-    <Parameter Name="OrderBook_PartitionCount" Value="1" />
+    <Parameter Name="OrderBook_PartitionCount" Value="6" />
     <Parameter Name="OrderBook_MinReplicaSetSize" Value="3" />
     <Parameter Name="OrderBook_TargetReplicaSetSize" Value="3" />
     <Parameter Name="ReverseProxy_Port" Value="19081" />
