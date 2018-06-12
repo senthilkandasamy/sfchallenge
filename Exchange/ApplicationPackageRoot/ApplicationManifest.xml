@@ -32,7 +32,7 @@
     <Parameter Name="Fulfillment_MaxTradesPending" DefaultValue="800" />
     <Parameter Name="OrderBook_MaxBidsPending" DefaultValue="700" />
     <Parameter Name="OrderBook_MaxAsksPending" DefaultValue="700" />
-    <Parameter Name="OrderBook_PartitionCount" DefaultValue="6" />
+    
   </Parameters>
   <!-- Import Service Manifests -->
   <ServiceManifestImport>
