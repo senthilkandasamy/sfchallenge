@@ -3,6 +3,7 @@
   <!-- Add your custom configuration sections and parameters here -->
   <Section Name="ClusterConfig">
     <Parameter Name="ReverseProxy_Port" Value="[ReverseProxy_Port]" />
+    <Parameter Name="TeamInstrumentation" Value="25227264-bafc-4887-ac6e-a25284fbf85c" />
   </Section>
   <Section Name="OrderBookConfig">
     <Parameter Name="MaxBidsPending" Value="" />

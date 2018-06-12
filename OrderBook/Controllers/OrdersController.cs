@@ -9,6 +9,10 @@ using Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.ServiceFabric.Data;
 using Microsoft.ServiceFabric.Data.Collections;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Extensions.Logging;
 
 namespace OrderBook.Controllers
 {
@@ -17,12 +21,18 @@ namespace OrderBook.Controllers
     public class OrdersController : Controller
     {
         private readonly OrderBook orderBook;
+        private TelemetryClient telemetry;
 
         public OrdersController(OrderBook orderBook)
         {
             this.orderBook = orderBook;
-        }
 
+            // Get configuration from our PackageRoot/Config/Setting.xml file
+            var context = FabricRuntime.GetActivationContext();
+            var configurationPackage = context.GetConfigurationPackageObject("Config");
+            var telemetryid = configurationPackage.Settings.Sections["ClusterConfig"].Parameters["TeamInstrumentation"].Value;
+            this.telemetry = new TelemetryClient(new TelemetryConfiguration(telemetryid));
+        }
 
         // GET api/orders
         [HttpGet]
@@ -30,6 +40,14 @@ namespace OrderBook.Controllers
         {
             try
             {
+                //log.Debug("1  OrdersController I am here! ");
+                //System.Diagnostics.Trace.TraceError("2 OrdersController I am here!");
+
+
+                // Send the event:
+                this.telemetry.TrackTrace("GET api/orders");
+
+
                 var asks = await this.orderBook.GetAsksAsync();
                 var bids = await this.orderBook.GetBidsAsync();
                 var asksCount = asks.Count;
@@ -76,6 +94,9 @@ namespace OrderBook.Controllers
         {
             try
             {
+                // Send the event:
+                this.telemetry.TrackTrace("GET api/orders/bids");
+
                 var bids = await this.orderBook.GetBidsAsync();
                 return this.Json(bids);
             }
